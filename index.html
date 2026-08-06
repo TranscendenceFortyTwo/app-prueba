@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Despliegue completado!</title>
+<style>
+  :root {
+    --bg-1: #0f172a;
+    --bg-2: #1e1b4b;
+    --accent: #7c3aed;
+    --accent-2: #22d3ee;
+    --text: #f8fafc;
+    --muted: #a5b4c3;
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-border: rgba(255, 255, 255, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 20% 20%, var(--bg-2), var(--bg-1) 60%);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    z-index: 0;
+  }
+  .glow-1 {
+    width: 400px; height: 400px;
+    background: var(--accent);
+    top: -100px; left: -100px;
+  }
+  .glow-2 {
+    width: 350px; height: 350px;
+    background: var(--accent-2);
+    bottom: -80px; right: -80px;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    animation: pop 0.5s ease-out;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  p.subtitle {
+    margin: 0 0 2rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(34, 211, 238, 0.12);
+    border: 1px solid rgba(34, 211, 238, 0.35);
+    color: var(--accent-2);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 8px var(--accent-2);
+    animation: pulse 1.6s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .info div {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .info span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+  }
+
+  footer {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <div class="card">
+    <div class="badge">🚀</div>
+    <div class="status"><span class="dot"></span> Servidor activo</div>
+    <h1>¡Despliegue completado!</h1>
+    <p class="subtitle">Esta aplicación se está ejecutando correctamente y está lista para pruebas de despliegue.</p>
+
+    <div class="info">
+      <div><span>Entorno</span>Node.js + Docker</div>
+      <div><span>Puerto</span>3000</div>
+      <div><span>Estado</span>OK ✔</div>
+      <div><span>Tipo</span>App de prueba</div>
+    </div>
+
+    <footer>Construido para validar el pipeline de despliegue.</footer>
+  </div>
+</body>
+</html>
